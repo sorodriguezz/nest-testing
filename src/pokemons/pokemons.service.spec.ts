@@ -25,7 +25,13 @@ describe('PokemonsService', () => {
 
     const result = await service.create(newPokemon);
 
-    expect(result).toBe(`This actions adds a ${newPokemon.name}`);
+    expect(result).toEqual({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      id: expect.any(Number),
+      type: 'Electric',
+      hp: 0,
+      sprites: [],
+    });
   });
 
   it('should return pokemon if exists', async () => {
